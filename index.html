@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<script>
+        
+        
+        
+        let playerSelection = prompt("Rock Paper Scissor", "Make your choice");
+        console.log(playerSelection);
+        
+        let value;
+
+       function computerSelection(max) {
+        num = Math.floor(Math.random() * max);
+        if(num == 0){
+            console.log("rock");
+            value = "rock"
+        }
+        else if(num == 1){
+            console.log("paper");
+            value = "paper"
+        }
+        else{
+            console.log("scissor");
+            value = "scissor"
+        }
+        
+     }        
+        
+        computerSelection(3);
+
+        let gameResult;
+
+        function roundPlay(playerSelection, value){
+            if(playerSelection === value){
+                console.log("tie");
+                gameResult = "tie";
+            }
+            else if(playerSelection === "scissor" && value === "paper"){
+                console.log("player wins");
+                gameResult = "player wins";
+            }
+            else if(value === "scissor" && playerSelection === "paper"){
+                console.log("computer wins");
+                gameResult = "computer wins";
+            }
+            else if(playerSelection === "paper" && value === "rock"){
+                console.log('player wins');
+                gameResult = "player wins";
+            }
+            else if(value === "paper" && playerSelection === "rock"){
+                console.log('computer wins');
+                gameResult = "computer wins";
+            }
+            else if(playerSelection === "paper" && value === "scissor"){
+                console.log("computer wins");
+                gameResult = "computer wins";
+            }
+            else if (value === "paper" && playerSelection === "scissor"){
+                console.log("player wins");
+                gameResult = "player wins";
+            }
+            else if(playerSelection === "scissor" && value === "rock"){
+                console.log("computer wins");
+                gameResult = "computer wins";
+            }
+            else if(playerSelection === "rock" && value === "scissor"){
+                console.log("player wins");
+                gameResult = "player wins";
+            }    
+            else{
+                console.log("oops what happened?");
+            }
+        }
+
+        roundPlay(playerSelection, value);
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let draw = 0;
+
+        function game(){
+            
+            let round = 5;
+            for(let i=1; i < round; i++){
+                
+                let playerSelection = prompt("Rock Paper Scissor", "Make your choice");
+                console.log(playerSelection);
+
+                computerSelection(3);
+                roundPlay(playerSelection, value);
+
+                if(gameResult === "player wins"){
+                    playerScore++;
+                    console.log(playerScore);
+                }
+                else if(gameResult === "computer wins"){
+                    computerScore++;
+                    console.log(computerScore);
+                }
+                else{
+                    draw++;
+                    console.log(draw);
+                }
+            }
+        }
+
+        game();
+        
+        
+        
+        
+                
+            
+
+        
+    </script>
+  </body>
+</html>
