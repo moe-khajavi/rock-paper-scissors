@@ -36,44 +36,66 @@
         
         computerSelection(3);
 
+        
+        let playerScore = 0;
+        let computerScore = 0;
+        let draw = 0;
         let gameResult;
 
         function roundPlay(playerSelection, value){
             if(playerSelection === value){
                 console.log("tie");
                 gameResult = "tie";
+                draw++;
+                console.log(draw);
             }
             else if(playerSelection === "scissor" && value === "paper"){
                 console.log("player wins");
                 gameResult = "player wins";
+                playerScore++;
+                console.log(playerScore);
             }
             else if(value === "scissor" && playerSelection === "paper"){
                 console.log("computer wins");
                 gameResult = "computer wins";
+                computerScore++;
+                console.log(computerScore);
             }
             else if(playerSelection === "paper" && value === "rock"){
                 console.log('player wins');
                 gameResult = "player wins";
+                playerScore++;
+                console.log(playerScore);
             }
             else if(value === "paper" && playerSelection === "rock"){
                 console.log('computer wins');
                 gameResult = "computer wins";
+                computerScore++;
+                console.log(computerScore);
             }
             else if(playerSelection === "paper" && value === "scissor"){
                 console.log("computer wins");
                 gameResult = "computer wins";
+                computerScore++;
+                console.log(computerScore);
             }
             else if (value === "paper" && playerSelection === "scissor"){
                 console.log("player wins");
                 gameResult = "player wins";
+                playerScore++;
+                console.log(playerScore);
             }
             else if(playerSelection === "scissor" && value === "rock"){
                 console.log("computer wins");
                 gameResult = "computer wins";
+                computerScore++;
+                console.log(computerScore);
             }
             else if(playerSelection === "rock" && value === "scissor"){
                 console.log("player wins");
-                gameResult = "player wins";
+                gameResulsut = "player wins";
+                playerScore++;
+                console.log(playerScore);
             }    
             else{
                 console.log("oops what happened?");
@@ -82,9 +104,7 @@
 
         roundPlay(playerSelection, value);
 
-        let playerScore = 0;
-        let computerScore = 0;
-        let draw = 0;
+       
 
         function game(){
             
@@ -97,18 +117,19 @@
                 computerSelection(3);
                 roundPlay(playerSelection, value);
 
-                if(gameResult === "player wins"){
-                    playerScore++;
-                    console.log(playerScore);
-                }
-                else if(gameResult === "computer wins"){
-                    computerScore++;
-                    console.log(computerScore);
-                }
-                else{
-                    draw++;
-                    console.log(draw);
-                }
+            }
+            console.log("Player Score " + playerScore);
+            console.log("Computer Score " + computerScore);
+            console.log("draws " + draw);
+
+            if(playerScore > computerScore){
+                console.log("PLAYER WINS!");
+            }
+            else if(playerScore < computerScore){
+                console.log("COMPUTER WINS!");
+            }
+            else if(playerScore === computerScore){
+                console.log("IT's A TIE!")
             }
         }
 
